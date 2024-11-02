@@ -1,66 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*==== Dark Theme Colors and Variables ====*/
 :root {
-    /*==== Main Theme Colors ====*/
-    --first-color: #0e2431;
+    --first-color: #fff;
     --second-color: #6a59d1;
-    --third-color: #777;
-
-    /*==== Hover Colors ====*/
-    --hover-color: #614fd0;
+    --third-color: #a9afc3;
 
     /*==== Background Colors ====*/
-    --body-bg-color: #fefefe;
-    --card-bg-color: #fff;
-    --modal-bg-color: #777;
-    --bg-transparent-color: rgba(0, 0, 0, 0.1);
-    --transparent-color-01: rgba(0, 0, 0, 0.1);
-    --transparent-color-02: rgba(0, 0, 0, 0.1);
-    --line-color: #d7d7d7;
+    --body-bg-color: #0e1b31;
+    --card-bg-color: #132347;
+    --modal-bg-color: #102048;
+    --bg-transparent-color: rgba(255, 255, 255, 0.1);
+    --transparent-color-01: rgba(255, 255, 255, 0.1);
+    --line-color: #454f6b;
 
     /*==== Color Filters ====*/
-    --color-filter: invert(1);
-  
+    --color-filter: invert(0);
+
     /*==== Box Shadow ====*/
     --box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
-  
+
     /*==== Font Size ====*/
     --small-font-size: 0.9em;
     --normal-font-size: 1em;
-  
+
     /*==== Scroll-bar Colors ====*/
-    --scroll-bar-color: #c5cadf;
-    --scroll-thumb-color: #70768a;
-    --scroll-thumb-hover-color: #c5cadf;
+    --scroll-bar-color: #c1ceff;
+    --scroll-thumb-color: #282f4e;
+    --scroll-thumb-hover-color: #454f6b;
 }
 
-.dark-theme{
-     /*==== Main Theme Colors ====*/
-     --first-color: #fff;
-     --second-color: #6a59d1;
-     --third-color: #a9afc3;
- 
- 
-     /*==== Background Colors ====*/
-     --body-bg-color: #0e1b31;
-     --card-bg-color: #132347;
-     --modal-bg-color: #102048;
-     --bg-transparent-color: rgba(255, 255, 255, 0.1);
-     --transparent-color-01: rgba(255, 255, 255, 0.1);
-     --line-color: #454f6b;
- 
-     /*==== Color Filters ====*/
-     --color-filter: invert(0);
-   
-   
-     /*==== Scroll-bar Colors ====*/
-     --scroll-bar-color: #c1ceff;
-     --scroll-thumb-color: #282f4e;
-     --scroll-thumb-hover-color: #454f6b;
- }
- 
-
-
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -87,8 +57,8 @@ li {
     list-style: none;
 }
 
-/* ========== Scroll to Top Button =======*/
-.scrollToTop-btn{
+/* ========== Scroll to Top Button ======= */
+.scrollToTop-btn {
     z-index: 99999;
     position: fixed;
     right: 0;
@@ -104,14 +74,14 @@ li {
     transition: .5s ease;
 }
 
-.scrollToTop-btn.active{
+.scrollToTop-btn.active {
     right: 20px;
     pointer-events: all;
     opacity: 1;
 }
 
-/* ========== Light/Dark Theme button ========== */
-.theme-btn{
+/* ========== Theme Toggle Button (If Needed for Dark Mode) ========== */
+.theme-btn {
     z-index: 999999;
     position: fixed;
     right: 0;
@@ -126,22 +96,15 @@ li {
     cursor: pointer;
 }
 
-.theme-btn .fa-sun{
-    display: none;
-
-}
-
-.theme-btn.sun .fa-sun{
+.theme-btn .fa-sun {
     display: none;
 }
 
-.theme-btn .fa-sun .theme-btn.sun .fa-moon{
-    display: none;
-}
-
-.theme-btn.sun .fa-sun{
+/* Ensuring that any icon for light theme is hidden */
+.theme-btn.sun .fa-sun {
     display: block;
 }
+
 /*===== Scroll bar =====*/
 ::-webkit-scrollbar{
     width: 10px;
@@ -178,7 +141,7 @@ header.sticky{
     height: calc(4rem + 1rem);
     max-width: 1250px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
@@ -197,27 +160,7 @@ header.sticky .nav-bar{
     margin-right: auto;
 }
 
-.nav-items a {
-    color: var(--first-color);
-    font-size: var(--normal-font-size);
-    font-weight: 500;
-}
 
-.nav-items a.active{
-    color: var(--second-color);
-}
-
-.nav-items a:not(:last-child) {
-    margin-right: 50px;
-}
-
-.nav-items a:hover{
-    color: var(--second-color);
-}
-
-.nav-menu-btn{
-    display: none;
-}
 /*==== Home section ====*/
 
 .home{
@@ -1037,13 +980,116 @@ footer a {
 }
 
 
-/*========== Media query max-width 1070px ===========*/
-@media screen and (max-width: 1070px){
+/*========== Media Query for Smaller Screens (max-width: 1070px) ==========*/
+@media screen and (max-width: 1070px) {
+    /* Header Navigation */
+    .nav-items {
+        display: none; /* Hide nav items inline on smaller screens */
+    }
     
+    .nav-menu-btn {
+        display: block; /* Show menu button on smaller screens */
+    }
+
+    /* Home Section */
+    .home .home-container .info {
+        font-size: 0.85rem;
+    }
+
+    /* About Section */
+    .about .container .content {
+        display: grid;
+        width: 100%;
+        row-gap: 20px;
+    }
+
+    .about-img img,
+    .about-info {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .about-info .professional-list {
+        flex-direction: column;
+    }
+
+    .about-info .professional-list .list-item {
+        justify-content: start;
+    }
+
+    /* Get in Touch */
+    .get-in-touch .contact-card {
+        display: grid;
+        width: 100%;
+    }
+
+    .contact-card .title {
+        font-size: 0.8rem;
+        line-height: 50px;
+    }
+
+    /* Our Clients */
+    .client-swiper .swiper-slide {
+        flex-direction: column;
+    }
+
+    .client-details {
+        text-align: center;
+    }
+
+    /* Contact Section */
+    .contact .content {
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+
+    .contact .contact-left {
+        margin-bottom: 40px;
+    }
+
+    .contact-form .second-row {
+        flex-direction: column;
+    }
+
+    .contact-form .second-row input {
+        width: 100%;
+    }
+
+    /* Footer */
+    footer .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-container .about,
+    .footer-container .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .footer-container .info ul {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-container .info ul li {
+        margin: 5px 0;
+    }
+
+    .footer-container .hr {
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 10px 0 22px;
+    }
 }
 
-/*=========== Header Navigation ==========*/
-.navigation{
+/*========== Default (Desktop) Styles ==========*/
+/* Place all your general desktop styles here */
+
+.navigation {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -1055,14 +1101,15 @@ footer a {
     background: var(--transparent-color-01);
     visibility: hidden;
     opacity: 0;
-    transition: .3s ease;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
 }
 
-.navigation .active{
+.navigation .active {
     visibility: visible;
     opacity: 1;
 }
-.nav-items{
+
+.nav-items {
     position: relative;
     background: var(--modal-bg-color);
     width: 600px;
@@ -1076,13 +1123,21 @@ footer a {
     box-shadow: var(--box-shadow);
 }
 
-.nav-items a{
+.nav-items a {
+    color: var(--first-color);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
     margin: 15px 50px;
 }
 
-.nav-close-btn{
+.nav-items a.active,
+.nav-items a:hover {
+    color: var(--second-color);
+}
+
+.nav-close-btn {
     position: absolute;
-    background: url(images/close\ button.png)no-repeat;
+    background: url(images/close\ button.png) no-repeat;
     filter: var(--color-filter);
     background-size: 12px;
     background-position: center;
@@ -1093,15 +1148,17 @@ footer a {
     margin: 10px;
     cursor: pointer;
 }
-.nav-menu-btn{
-    background: url(images/Menu\ Button.png)no-repeat;
+
+/* Navigation Menu Button */
+.nav-menu-btn {
+    background: url(images/Menu\ Button.png) no-repeat;
     filter: var(--color-filter);
     background-size: 20px;
     background-position: center;
     width: 40px;
     height: 20px;
     cursor: pointer;
-    display: block;
+    display: none; /* Hidden on larger screens */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -1109,102 +1166,113 @@ footer a {
     z-index: 100;
 }
 
-/*========== Home Section ==========*/
-.home .home-container .info{
-    font-size: 0.85rem;
+/*========== Client Section Styles (Applies to All Screen Sizes) ==========*/
+.client-swiper .swiper-slide {
+    /* Style the client section universally */
 }
 
-/*========== About Section =========*/
-.about .container .content{
-    display: grid;
-    width: 100%;
-    row-gap: 20px;
+.client-details {
+    /* Style the client details universally */
 }
 
-.about-img img{
-    min-width: 0;
-    width: 100%;
+/*========== Media Query for Smaller Screens (max-width: 1070px) ==========*/
+@media screen and (max-width: 1070px) {
+    /* Header Navigation */
+    .nav-items {
+        display: none; /* Hide nav items inline on smaller screens */
+    }
+    
+    .nav-menu-btn {
+        display: block; /* Show menu button on smaller screens */
+    }
+
+    /* Home Section */
+    .home .home-container .info {
+        font-size: 0.85rem;
+    }
+
+    /* About Section */
+    .about .container .content {
+        display: grid;
+        width: 100%;
+        row-gap: 20px;
+    }
+
+    .about-img img,
+    .about-info {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .about-info .professional-list {
+        flex-direction: column;
+    }
+
+    .about-info .professional-list .list-item {
+        justify-content: start;
+    }
+
+    /* Get in Touch */
+    .get-in-touch .contact-card {
+        display: grid;
+        width: 100%;
+    }
+
+    .contact-card .title {
+        font-size: 0.8rem;
+        line-height: 50px;
+    }
+
+    /* Contact Section */
+    .contact .content {
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+
+    .contact .contact-left {
+        margin-bottom: 40px;
+    }
+
+    .contact-form .second-row {
+        flex-direction: column;
+    }
+
+    .contact-form .second-row input {
+        width: 100%;
+    }
+
+    /* Footer */
+    footer .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-container .about,
+    .footer-container .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .footer-container .info ul {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-container .info ul li {
+        margin: 5px 0;
+    }
+
+    .footer-container .hr {
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 10px 0 22px;
+    }
 }
 
-.about-info{
-    min-width: 0;
-    width: 100%;
-}
 
-.about-info .professional-list{
-    flex-direction: column;
-}
-
-.about-info .professional-list .list-item{
-    justify-content: start;
-}
-
-/*========== Get in Touch ===========*/
-.get-in-touch .contact-card{
-    display: grid;
-    width: 100%;
-}
-
-.contact-card .title{
-    font-size: 0.8rem;
-    line-height: 50px;
-}
-
-/*========== Our Clients ===========*/
-.client-swiper .swiper-slide{
-    flex-direction: column;
-}
-
-.client-details{
-    text-align: center;
-}
-
-/*=========== Contact Section ===========*/
-.contact .content{
-    flex-direction: column;
-    font-size: 0.9rem;
-}
-
-.contact .contact-left{
-    margin-bottom: 40px;
-}
-
-.contact-form .second-row{
-    flex-direction: column;
-}
-
-.contact-form .second-row input{
-    width: 100%;
-}
-
-/*=========== Footer ===========*/
-footer .footer-container{
-    flex-direction: column;
-}
-
-.footer-container .about, .footer-container .info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 50px;
-}
-
-.footer-container .info ul{
-    align-items: center;
-    flex-direction: column;
-}
-
-.footer-container .info ul li{
-    margin: 5px 0;
-}
-
-.footer-container .hr{
-    width: 100%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 10px 0 22px;
-}
 
 /*========== Media Query Max-width 730PX ==========*/
 @media screen and (max-width: 730px){
